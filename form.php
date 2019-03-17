@@ -7,6 +7,29 @@
   <body>
     <?php
       if (isset($_POST['submit'])) {
+        $ok = ture;
+      if (!isset($_POST['name']) || $_POST['name'] === '') {
+        $ok = false;
+      }
+      if (!isset($_POST['gender']) || $_POST['gender'] === '') {
+        $ok = false;
+      }
+      if (!isset($_POST['color']) || $_POST['color'] === '') {
+        $ok = false;
+      }
+
+      // in case of Array we use !is_array and count = 0
+      if (!isset($_POST['languages']) || !is_array($_POST['languages']) || count($_POST['languages']) === 0) {
+        $ok = false;
+      }
+
+      if (!isset($_POST['comments']) || $_POST['comments'] === '') {
+      if (!isset($_POST['tc']) || $_POST['tc'] === '') {
+        $ok = false;
+      }
+        $ok = false;
+      }
+      if ($ok) {
         printf('User name: %s
         <br>Passwrod: %s
         <br>Gender: %s
@@ -24,6 +47,7 @@
          htmlspecialchars($_POST['comments']),
          htmlspecialchars($_POST['tc']));
       }
+    }
      ?>
     <form method="post" action="">
       User name: <input type="text" name="name"/><br>
