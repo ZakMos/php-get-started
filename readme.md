@@ -1,5 +1,5 @@
-Start learnini PHP (Zakaria Moslim)
-PHP get startd
+Start learning PHP (Zakaria Moslim)
+PHP Get Started
 
 Hypertext Preprocessor
 
@@ -7,12 +7,12 @@ https://www.php.net
 https://www.apachefriends.org
 
 
-to start server from terminal:
+- To start server from terminal:
 php -S localhost:8080   port could be any number
 
 
 
-How to Install Apache, MySQL and PHP on Ubuntu 17.04
+- How to Install Apache, MySQL and PHP on Ubuntu 17.04
 from website: https://www.vultr.com/docs/how-to-install-apache-mysql-and-php-on-ubuntu-17-04
 
 Published on: Mon, Jan 8, 2018 at 1:35 pm EST
