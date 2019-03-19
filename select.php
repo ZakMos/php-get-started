@@ -11,7 +11,9 @@
       $result = mysquli_query($db, $sql);
 
       foreach ($result as $row) {
-        printf('<li><span style="color: %s">%s (%s)</span></li>',
+        printf('<li><span style="color: %s">%s (%s)</span>
+        <a href="update.php?id=%s">edit</a>
+        </li>',
           htmlspecialchars($row['color']),
           htmlspecialchars($row['name']),
           htmlspecialchars($row['gender'])
