@@ -16,16 +16,25 @@
 
       if (isset($_POST['submit'])) {
         $ok = ture;
+
       if (!isset($_POST['name']) || $_POST['name'] === '') {
         $ok = false;
       } else {
         $name = $_POST['name'];
       }
+
       if (!isset($_POST['gender']) || $_POST['gender'] === '') {
+        $ok = false;
+      } else {
+        $gender = $_POST['gender'];
+      }
+
+      if (!isset($_POST['password']) || $_POST['password'] === '') {
         $ok = false;
       } else {
         $password = $_POST['password'];
       }
+
       if (!isset($_POST['color']) || $_POST['color'] === '') {
         $ok = false;
       } else {
