@@ -42,3 +42,9 @@ Method POST:
 - No size limit, file uploads possible.
 - PHP array $_POST
 )_
+
+=======================================================
+
+Database Setup
+
+https://www.phpmyadmin.net/
