@@ -11,19 +11,19 @@
       $color = '';
 
       if (isset($_POST['submit'])) {
-        $ok = ture;
+        $ok = 'ture';
       if (!isset($_POST['name']) || $_POST['name'] === '') {
-        $ok = false;
+        $ok = 'false';
       } else {
         $name = $_POST['name'];
       }
       if (!isset($_POST['gender']) || $_POST['gender'] === '') {
-        $ok = false;
+        $ok = "false";
       } else {
         $gender = $_POST['gender'];
       }
       if (!isset($_POST['color']) || $_POST['color'] === '') {
-        $ok = false;
+        $ok = "false";
       } else {
         $color = $_POST['color'];
       }
@@ -42,13 +42,16 @@
        }
     }
      ?>
-
-
-
+    <div class="container">
     <form method="post" action="">
-      User name: <input type="text" name="name" value="<?php
+      <p>User name:</p>
+      <input type="text" name="name" value="<?php
       echo htmlspecialchars($name);
-      ?>"/><br>
+      ?>"/>
+    </div>
+    <div class="">
+
+    </div>
       Gender:
         <input type="radio" name="gender" value="f" <?php
           if($gender === 'f') {
