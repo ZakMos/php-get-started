@@ -6,7 +6,9 @@
   </head>
   <body>
     <?php
+    readfile('navigation.tmpl.html');
       $name = '';
+      $password = '';
       $gender = '';
       $color = '';
 
@@ -16,6 +18,11 @@
         $ok = 'false';
       } else {
         $name = $_POST['name'];
+      }
+      if (!isset($_POST['password']) || $_POST['password'] === '') {
+        $ok = 'false';
+      } else {
+        $password = $_POST['password'];
       }
       if (!isset($_POST['gender']) || $_POST['gender'] === '') {
         $ok = "false";
@@ -29,10 +36,12 @@
       }
 
       if ($ok) {
+          $hash = password_hash($password, PASSWORD_DEFAULT);
           $db = mysqli_connect('localhost', 'root', '', 'php');
-          $sql = sprintf("INSERT INTO users (name, gender, color) VALUES (
-            '%s', '%s', '%s'
+          $sql = sprintf("INSERT INTO users (name, password, gender, color) VALUES (
+            '%s', '%s', '%s', '%s'
           )", mysqli_real_escape_string($db, $name),
+              mysqli_real_escape_string($db, $hash),
               mysqli_real_escape_string($db, $gender),
               mysqli_real_escape_string($db, $color));
           mysqli_query($db, $sql);
@@ -44,14 +53,18 @@
      ?>
     <div class="container">
     <form method="post" action="">
-      <p>User name:</p>
-      <input type="text" name="name" value="<?php
-      echo htmlspecialchars($name);
-      ?>"/>
-    </div>
-    <div class="">
+      <div class="">
+        <p>User name:</p>
+        <input type="text" name="name" value="<?php
+        echo htmlspecialchars($name);
+        ?>"/>
+      </div>
+      <div class="">
+        <p>Password:</p>
+        <input type="password" name="password"/>
+      </div>
 
-    </div>
+    <div class="">
       Gender:
         <input type="radio" name="gender" value="f" <?php
           if($gender === 'f') {
@@ -62,7 +75,9 @@
           if($gender === 'm') {
             echo "checked";
           }
-         ?>>male<br>
+         ?>>male
+    </div>
+    <div class="">
       Favorit Color:
         <select class="" name="color">
           <option value="#f00" <?php
@@ -81,7 +96,10 @@
             }
           ?>>blue</option>
         </select>
+    </div>
+
         <input type="submit" name="submit" value="submit">
     </form>
+    </div>
   </body>
 </html>

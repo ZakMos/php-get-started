@@ -7,6 +7,7 @@
   <body>
     <p>
       <?php
+      require 'form.php';
       echo "Hello World!"; ?>
     </p>
   </body>
