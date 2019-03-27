@@ -81,12 +81,12 @@
      <form method="post" action="">
        <p>User name:</p>
        <input type="text" name="name" value="<?php
-       echo htmlspecialchars($name);
+        echo htmlspecialchars($name);
        ?>"/>
      <div class="">
        <p>Password:</p>
      <input type="password" name="password" value="<?php
-      echo htmlspecialchars($password);
+        echo htmlspecialchars($password);
       ?>"/>
       </div>
       <div class="">
