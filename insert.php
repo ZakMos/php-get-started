@@ -6,6 +6,7 @@
   </head>
   <body>
     <?php
+    readfile('navigation.tmpl.html');
       $name = '';
       $gender = '';
       $color = '';
@@ -48,10 +49,8 @@
       <input type="text" name="name" value="<?php
       echo htmlspecialchars($name);
       ?>"/>
-    </div>
-    <div class="">
 
-    </div>
+    <div class="">
       Gender:
         <input type="radio" name="gender" value="f" <?php
           if($gender === 'f') {
@@ -62,7 +61,9 @@
           if($gender === 'm') {
             echo "checked";
           }
-         ?>>male<br>
+         ?>>male
+    </div>
+    <div class="">
       Favorit Color:
         <select class="" name="color">
           <option value="#f00" <?php
@@ -81,7 +82,10 @@
             }
           ?>>blue</option>
         </select>
+    </div>
+
         <input type="submit" name="submit" value="submit">
     </form>
+    </div>
   </body>
 </html>

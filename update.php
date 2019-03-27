@@ -14,30 +14,31 @@
   </head>
   <body>
     <?php
+      readfile('navigation.tmpl.html');
       $name = '';
       $gender = '';
       $color = '';
 
       if (isset($_POST['submit'])) {
-        $ok = ture;
+        $ok = 'ture';
       if (!isset($_POST['name']) || $_POST['name'] === '') {
-        $ok = false;
+        $ok = 'false';
       } else {
         $name = $_POST['name'];
       }
       if (!isset($_POST['gender']) || $_POST['gender'] === '') {
-        $ok = false;
+        $ok = 'false';
       } else {
         $gender = $_POST['gender'];
       }
       if (!isset($_POST['color']) || $_POST['color'] === '') {
-        $ok = false;
+        $ok = 'false';
       } else {
         $color = $_POST['color'];
       }
 
       if ($ok) {
-          $db = mysql_connec('localhost', 'root', '', 'php');
+          $db = mysqli_connect('localhost', 'root', '', 'php');
           $sql = sprintf("UPDATE users SET name='%s', color='%s', gender='%s' WHERE id=%s",
           mysqli_real_escape_string($db, $name),
           mysqli_real_escape_string($db, $gender),
@@ -48,7 +49,7 @@
           mysqli_close($db);
        }
     } else {
-      $db = mysql_connect('localhost', 'root', '', 'php');
+      $db = mysqli_connect('localhost', 'root', '', 'php');
       $sql = sprintf('SELECT * FROM users WHERE id=%s', $id);
       $result = mysqli_query($db, $sql);
       foreach ($result as $row) {
